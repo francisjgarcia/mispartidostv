@@ -35,4 +35,3 @@ class ScrapySite(scrapy.Spider):
                     'channel': channel[0]
                 }
                 addItem(local, visitor, competition, date, hour, 4, channel[0])
-                break
