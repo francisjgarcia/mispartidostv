@@ -17,5 +17,3 @@ def convertCompetition(competition):
     for item in dictionary:
         if item == competition:
             return(dictionary[competition])
-
-print(convertCompetition("Bundesligas"))
