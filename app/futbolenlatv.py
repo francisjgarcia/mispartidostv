@@ -1,8 +1,10 @@
 import scrapy
 from scrapy.http import FormRequest
-from functions.todo import addItem
 from functions.convertDate import convertDate
-from functions.convertCompetition import convertCompetition 
+from functions.convertCompetition import convertCompetition
+from functions.convertChannel import convertChannel
+from functions.matchPriority import fullPriority
+from functions.todo import addTask
 
 class ScrapySite(scrapy.Spider):
     name = "FutbolEnLaTV"
@@ -25,13 +27,6 @@ class ScrapySite(scrapy.Spider):
                 local = item.css('td.local > ul > li > span::text').get()
                 visitor = item.css('td.visitante > ul > li > span::text').get()
                 competition = convertCompetition(item.css('td.detalles > ul > li.detalles-liga > span::text').get())
-                channel = item.css('td.canales > ul > li ::text').getall()
-                yield {
-                    'date': date,
-                    'hour': hour,
-                    'competition': competition,
-                    'local': local,
-                    'visitor': visitor,
-                    'channel': channel[0]
-                }
-                addItem(local, visitor, competition, date, hour, 4, channel[0])
+                channel = convertChannel(item.css('td.canales > ul > li ::text').getall())
+                if date is not None and hour is not None and competition is not None and channel is not None:
+                    addTask(local, visitor, competition, date, hour, fullPriority(local, visitor, competition), channel)
