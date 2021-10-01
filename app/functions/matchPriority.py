@@ -117,7 +117,6 @@ def fullPriority(local, visitor, competition):
     visitor_priority = teamPriority(visitor)
     competition_pririty = competitionPriority(competition)
     total_priority = local_priority + visitor_priority + competition_pririty
-    # return(local_priority, visitor_priority, competition_pririty, total_priority)
     if total_priority >= 0 and total_priority <= 3:
         return(1)
     elif total_priority >= 4 and total_priority <= 6:
@@ -126,5 +125,3 @@ def fullPriority(local, visitor, competition):
         return(3)
     elif total_priority >= 11 and total_priority <= 15:
         return(4)
-
-# print(fullPriority("FC Barcelona", "Málaga", "Champions League"))
