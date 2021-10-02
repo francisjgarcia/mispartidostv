@@ -15,7 +15,7 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime && \
 
 WORKDIR /usr/src/app
 
-COPY ../app .
+COPY app .
 
 RUN pip install -r requirements.txt
 
