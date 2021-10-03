@@ -28,5 +28,5 @@ class ScrapySite(scrapy.Spider):
                 visitor = item.css('td.visitante > ul > li > span::text').get()
                 competition = convertCompetition(item.css('td.detalles > ul > li.detalles-liga > span::text').get())
                 channel = convertChannel(item.css('td.canales > ul > li ::text').getall())
-                if date is not None and hour is not None and competition is not None and channel is not None:
+                if date is not None and hour is not None and local is not None and visitor is not None and competition is not None and channel is not None:
                     addTask(local, visitor, competition, date, hour, fullPriority(local, visitor, competition), channel)
