@@ -18,15 +18,15 @@ class ScrapySite(scrapy.Spider):
                                         callback=self.after_form)
 
     def after_form(self, response):
-        match_list = response.css('table.tabla-partidos')
+        match_list = response.css('table.tablaPrincipal > tbody')
         for match in match_list:
-            date = convertDate(match.css('tr > td.dia-partido::text').get())
-            list = match.css('tr.event-row')
+            date = convertDate(match.css('tr.cabeceraTabla > td::text').get())
+            list = match.css('tr')
             for item in list:
                 hour = item.css('td.hora::text').get()
-                local = item.css('td.local > ul > li > span::text').get()
-                visitor = item.css('td.visitante > ul > li > span::text').get()
-                competition = convertCompetition(item.css('td.detalles > ul > li.detalles-liga > span::text').get())
-                channel = convertChannel(item.css('td.canales > ul > li ::text').getall())
-                if date is not None and hour is not None and local is not None and visitor is not None and competition is not None and channel is not None:
-                    addTask(local, visitor, competition, date, hour, fullPriority(local, visitor, competition), channel)
+                local = item.css('td.local > span::text').get()
+                visitor = item.css('td.visitante > span::text').get()
+                competition = convertCompetition(item.css('td.detalles > ul > li > div.contenedorImgCompeticion > span.ajusteDoslineas::text').get())
+                channel = convertChannel(item.css('td.canales > ul.listaCanales > li ::text').getall())
+                if date is not None and hour is not None and competition is not None and channel is not None:
+                    addTask(local, visitor, competition, date, hour.strip(), fullPriority(local, visitor, competition), channel)
