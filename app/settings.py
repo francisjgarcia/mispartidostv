@@ -1,10 +1,11 @@
-from dotenv import dotenv_values
+import os
+from dotenv import load_dotenv
 
 # Set dotenv
-config = dotenv_values(".env")
+load_dotenv()
 
 # Get API token
-todoist_token = config['TODOIST_TOKEN']
+todoist_token = os.getenv('TODOIST_TOKEN')
 
 # Scrapy general settings
 scrapy_settings = {
