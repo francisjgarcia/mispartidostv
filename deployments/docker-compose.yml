@@ -2,14 +2,13 @@ version: '3.8'
 services:
   mispartidostv:
     container_name: mispartidostv
-    image: ${IMAGE_NAME}:${IMAGE_VERSION}
+    image: mispartidostv
     build:
       context: ../
       dockerfile: deployments/Dockerfile
-      args:
-        python_version: ${PYTHON_VERSION}
-        app_version: ${IMAGE_VERSION}
     volumes:
       - ../app:/usr/src/app
+    env_file:
+      - ../app/.env
     command: bash
     tty: true

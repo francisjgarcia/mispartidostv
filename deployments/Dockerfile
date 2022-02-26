@@ -1,17 +1,10 @@
-ARG python_version
-ARG app_version
-
-FROM python:${python_version}
-
-LABEL version=${app_version}
+FROM python:3.10-slim-bullseye
 
 LABEL maintainer Francis J. Garcia <contacto@francisjgarcia.es>
 
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
 
-RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /usr/src/app
 
