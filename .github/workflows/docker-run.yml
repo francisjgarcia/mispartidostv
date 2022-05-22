@@ -4,13 +4,20 @@ on:
   schedule:
     - cron: 0 6 * * *
 
-env:
-    TODOIST_TOKEN: ${{ secrets.TODOIST_TOKEN }}
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .
 
 jobs:
-  build:
+  Run:
     runs-on: ubuntu-latest
+    environment: 
+      name: Production
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run mispartidostv application
-        run: docker run -e TODOIST_TOKEN=$TODOIST_TOKEN francisjgarcia/mispartidostv:latest
+        run: docker run -e TODOIST_TOKEN=${{ secrets.TODOIST_TOKEN }} ghcr.io/francisjgarcia/mispartidostv:latest
