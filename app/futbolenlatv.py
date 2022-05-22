@@ -1,3 +1,4 @@
+import json
 import scrapy
 from scrapy.http import FormRequest
 from functions.convertDate import convertDate
@@ -18,6 +19,7 @@ class ScrapySite(scrapy.Spider):
                                         callback=self.after_form)
 
     def after_form(self, response):
+        matches = []
         match_list = response.css('table.tablaPrincipal > tbody')
         for match in match_list:
             date = convertDate(match.css('tr.cabeceraTabla > td::text').get())
@@ -29,4 +31,8 @@ class ScrapySite(scrapy.Spider):
                 competition = convertCompetition(item.css('td.detalles > ul > li > div.contenedorImgCompeticion > span.ajusteDoslineas > label::text').get())
                 channel = convertChannel(item.css('td.canales > ul.listaCanales > li ::text').getall())
                 if date is not None and hour is not None and competition is not None and channel is not None:
-                    addTask(local, visitor, competition, date, hour.strip(), fullPriority(local, visitor, competition), channel)
+                    addTask(local, visitor, competition, date, hour.strip(), fullPriority(local, visitor, competition), channel, matches)
+        if len(matches) > 0:
+            print("Se añadieron los siguientes partidos:\n", json.dumps(matches, indent=2, ensure_ascii=False))
+        else:
+            print("No hay ningún partido que añadir.")
