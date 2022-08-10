@@ -9,7 +9,7 @@ def convertCompetition(competition):
         'Francia Ligue 1': 'Ligue 1',
         'Champions League': 'Champions League',
         'Europa League': 'Europa League',
-        'Supercopa Europa': 'Supercopas',
+        'Supercopa de Europa': 'Supercopas',
         'Supercopa de España': 'Supercopas',
         'UEFA Nations League': 'Selecciones',
         'FIFA Copa Mundial Catar 2022': 'Selecciones'
