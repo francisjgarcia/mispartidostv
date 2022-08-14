@@ -20,6 +20,7 @@ def convertChannel(channel):
         'M+ LaLiga 7': 'M+ LaLiga 7',
         'M+ LaLiga 8': 'M+ LaLiga 8',
         'M+ LaLiga 9': 'M+ LaLiga 9',
+        'LaLiga SmartBank TV': 'LaLiga SmartBank TV',
         'M+ Liga de Campeones': 'M+ Liga de Campeones',
         'M+ Liga de Campeones 1': 'M+ Liga de Campeones 1',
         'M+ Liga de Campeones 2': 'M+ Liga de Campeones 2',
