@@ -9,7 +9,7 @@ def convertChannel(channel):
         'Energy': 'Energy',
         'GOL': 'GOL',
         'DAZN': 'DAZN',
-        '#Vamos': '#Vamos',
+        'M+ #Vamos': '#Vamos',
         'M+ LaLiga': 'M+ LaLiga',
         'M+ LaLiga 1': 'M+ LaLiga 1',
         'M+ LaLiga 2': 'M+ LaLiga 2',
