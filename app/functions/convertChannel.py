@@ -30,8 +30,7 @@ def convertChannel(channel):
         'M+ Liga de Campeones 6': 'M+ Liga de Campeones 6',
         'M+ Liga de Campeones 7': 'M+ Liga de Campeones 7',
         'M+ Liga de Campeones 8': 'M+ Liga de Campeones 8',
-        'M+ Liga de Campeones 9': 'M+ Liga de Campeones 9',
-        'Gol Mundial': 'Gol Mundial',
+        'M+ Liga de Campeones 9': 'M+ Liga de Campeones 9'
         }
     for item_channel in channel:
         channel_name = item_channel.split("(")[0].rstrip()
