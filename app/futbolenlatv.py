@@ -31,7 +31,7 @@ class ScrapySite(scrapy.Spider):
                 competition = convertCompetition(item.css('td.detalles > ul > li > div.contenedorImgCompeticion > span.ajusteDoslineas > label::text').get())
                 channel = convertChannel(item.css('td.canales > ul.listaCanales > li ::text').getall())
                 if date is not None and hour is not None and competition is not None and channel is not None:
-                    addTask(local, visitor, competition, date, hour.strip(), fullPriority(local, visitor, competition), channel, matches)
+                    addTask(local, visitor, competition, date, str(hour).strip(), fullPriority(local, visitor, competition), channel, matches)
         if len(matches) > 0:
             print("Se añadieron los siguientes partidos:\n", json.dumps(matches, indent=2, ensure_ascii=False))
         else:

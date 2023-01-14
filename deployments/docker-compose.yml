@@ -10,5 +10,5 @@ services:
       - ../app:/usr/src/app
     env_file:
       - ../app/.env
-    command: bash
+    command: sh
     tty: true
