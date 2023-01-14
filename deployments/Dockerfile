@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.11.1-alpine3.17
 
 LABEL org.opencontainers.image.source="https://github.com/francisjgarcia/mispartidostv"
 LABEL org.opencontainers.image.description "Obtiene los próximos partidos de fútbol que se televisarán"
