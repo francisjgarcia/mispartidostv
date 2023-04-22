@@ -2,6 +2,7 @@
 from todoist_api_python.api import TodoistAPI
 from settings import todoist_token
 import re
+import time
 
 api = TodoistAPI(todoist_token)
 
@@ -24,8 +25,15 @@ def getTaskId(task_name):
 def addTask(local, visitor, competition, date, hour, priority, channel, matches):
     try:
         if not getTaskId(local+' - '+visitor):
-            api.add_task(content=local+' - '+visitor, project_id=getProjectId(competition), due_date=date+"T"+hour+":00", priority=priority, description=channel)
+            print("Se añadió el siguiente partido: "+local, visitor, competition, date, hour, priority, channel)
+            api.add_task(content=local+' - '+visitor, project_id=getProjectId('Fútbol'), due_date=date+"T"+hour+":00", priority=priority, description=channel, labels=[competition])
             json_task = {"local": ""+local+"", "visitor": ""+visitor+"", "competition": ""+competition+"", "date": ""+date+"", "hour": ""+hour.strip()+"", "channel": ""+channel+""}
             matches.append(json_task)
     except:
         print("No se ha podido añadir el siguiente partido: "+local, visitor, competition, date, hour, priority, channel)
+
+def deleteExpiredTasks():
+    for task in api.get_tasks(project_id=getProjectId('Fútbol')):
+        if time.strftime("%Y-%m-%d") > task.due.date:
+            print("Se ha eliminado el siguiente partido: "+task.content, task.due.date)
+            api.delete_task(task.id)
