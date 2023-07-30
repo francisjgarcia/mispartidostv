@@ -1,6 +1,6 @@
 def teamPriority(team):
     dictionary = {
-        # LaLiga Santander
+        # España
         'FC Barcelona': 6,
         'Real Madrid': 5,
         'At. Madrid': 5,
@@ -10,7 +10,6 @@ def teamPriority(team):
         'Real Sociedad': 2,
         'Villarreal': 2,
         'Celta': 1,
-        # LaLiga SmartBank
         'Málaga': 3,
         'Sporting Gijón': 1,
         'Eibar': 1,
@@ -20,7 +19,7 @@ def teamPriority(team):
         'Real Oviedo': 1,
         'Huesca': 1,
         'Real Valladolid': 1,
-        # Premier League
+        # Inglaterra
         'Liverpool': 4,
         'Manchester City': 4,
         'Manchester Utd.': 4,
@@ -34,7 +33,7 @@ def teamPriority(team):
         'Watford': 1,
         'Wolves': 1,
         'West Ham': 1,
-        # Serie A
+        # Italia
         'Juventus': 3,
         'Inter Milan': 3,
         'AC Milan': 3,
@@ -43,7 +42,7 @@ def teamPriority(team):
         'Atalanta': 2,
         'Fiorentina': 2,
         'Torino': 1,
-        # BundesLiga
+        # Alemania
         'FC Bayern': 3,
         'Borussia Dortmund': 3,
         'RB Leipzig': 2,
@@ -52,14 +51,15 @@ def teamPriority(team):
         'VfL Wolfsburg': 2,
         'Eintracht Frankfurt': 1,
         'Mainz 05': 1,
-        # Ligue 1
+        # Francia
         'PGS': 3,
         'O. Lyonnais': 2,
         'AS Monaco': 2,
         'O. Marseille': 2,
-        # Eredivisie
+        # Holanda
         'Ajax': 3,
-        # Primeira Liga
+        'PSV': 2,
+        # Portugal
         'Benfica': 3,
         'FC Porto': 3,
         'Sporting CP': 2,
@@ -93,9 +93,9 @@ def teamPriority(team):
 
 def competitionPriority(competition):
     dictionary = {
-        'La Liga': 3,
+        'La Liga EA Sports': 3,
         'Copa del Rey': 1,
-        'LaLiga SmartBank': 0,
+        'LaLiga Hypermotion': 0,
         'Premier League': 3,
         'Serie A Italiana': 1,
         'Bundesliga': 1,
@@ -105,7 +105,7 @@ def competitionPriority(competition):
         'Supercopa Europa': 3,
         'Supercopa de España': 2,
         'UEFA Nations League': 3,
-        'FIFA Copa Mundial Catar 2022': 3
+        'Eurocopa 2024': 3
     }
     try:
         return dictionary[competition]

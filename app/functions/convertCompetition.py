@@ -1,18 +1,18 @@
 def convertCompetition(competition):
     dictionary = {
-        'La Liga': 'LaLiga Santander',
+        'La Liga EA Sports': 'LaLiga EA Sports',
         'Copa del Rey': 'Copa del Rey',
-        'LaLiga SmartBank': 'LaLiga SmartBank',
+        'LaLiga Hypermotion': 'LaLiga Hypermotion',
         'Premier League': 'Premier League',
         'Serie A Italiana': 'Serie A',
         'Bundesliga': 'Bundesliga',
         'Francia Ligue 1': 'Ligue 1',
         'Champions League': 'Champions League',
         'Europa League': 'Europa League',
-        'Supercopa de Europa': 'Supercopas',
-        'Supercopa de España': 'Supercopas',
-        'UEFA Nations League': 'Selecciones',
-        'FIFA Copa Mundial Catar 2022': 'Selecciones'
+        'Supercopa de Europa': 'Supercopa de Europa',
+        'Supercopa de España': 'Supercopa de España',
+        'UEFA Nations League': 'UEFA Nations League',
+        'Eurocopa 2024': 'Eurocopa 2024'
         }
     for item in dictionary:
         if item == competition:
